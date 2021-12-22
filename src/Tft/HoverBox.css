@@ -1,0 +1,38 @@
+:root {
+    --notif-gris: #3c3535;
+}
+
+.championCard:hover .championHoverBox {
+    display: inline-block;
+
+}
+
+.traitCard:hover .traitHoverBox {
+    display: inline-block;
+}
+
+.championHoverBox {
+    display: none;
+    transform: translate(-50%, -38px);
+    position: absolute;
+    left: 50%;
+    border-style: solid;
+    border-color: var(--notif-gris);
+    background-color: var(--notif-gris);
+    color: white;
+    border-radius: 4px;
+    padding: 2px;
+}
+
+.traitHoverBox {
+    display: none;
+    transform: translate(-50%, -38px);
+    position: absolute;
+    left: 50%;
+    border-style: solid;
+    border-color: var(--notif-gris);
+    background-color: var(--notif-gris);
+    color: white;
+    border-radius: 4px;
+    padding: 2px;
+}

@@ -1,0 +1,63 @@
+.traitCard {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.traitImage {
+    position: absolute;
+    z-index: 2;
+    transform: translate(-13px, -4px);
+    filter: brightness(0);
+}
+
+.traitNumUnits {
+    margin-left: 4px;
+}
+
+.gold {
+    background-color: #dcc26e;
+}
+
+.silver {
+    background-color: #bccacf;
+}
+
+.bronze {
+    background-color: #87712d;
+}
+
+.hexagon {
+    position: relative;
+    width: 32px;
+    height: 18.48px;
+    margin: 9.24px 0;
+    border-left: solid 3px #333333;
+    border-right: solid 3px #333333;
+}
+
+.hexagon:before,
+.hexagon:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: 22.63px;
+    height: 22.63px;
+    -webkit-transform: scaleY(0.5774) rotate(-45deg);
+    -ms-transform: scaleY(0.5774) rotate(-45deg);
+    transform: scaleY(0.5774) rotate(-45deg);
+    background-color: inherit;
+    left: 1.6863px;
+}
+
+.hexagon:before {
+    top: -11.3137px;
+    border-top: solid 4.2426px #333333;
+    border-right: solid 4.2426px #333333;
+}
+
+.hexagon:after {
+    bottom: -11.3137px;
+    border-bottom: solid 4.2426px #333333;
+    border-left: solid 4.2426px #333333;
+}
