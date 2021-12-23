@@ -1,0 +1,15 @@
+
+
+.navItem {
+    margin: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.separator {
+    height: 2px;
+    color: darkslategrey;
+    margin: 0;
+    padding: 0;
+}
+

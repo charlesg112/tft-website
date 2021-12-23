@@ -1,13 +1,14 @@
 import React from 'react';
 import './App.css';
-import {DuoMatch} from "./TftDoubles/DuoMatch";
+import Navbar from "./Navbar/Navbar";
+import {Outlet} from "react-router-dom";
+
 
 function App() {
     return (
         <div className="App">
-            <DuoMatch firstSummonerName={"JeffHarrison"} secondSummonerName={"The Holy Drinker"}
-                      firstSummonerChampions={champions} secondSummonerChampions={champions}
-            firstSummonerTraits={traits} secondSummonerTraits={traits}/>
+            <Navbar/>
+            <Outlet />
         </div>
     );
 }
