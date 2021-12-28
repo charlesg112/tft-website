@@ -1,0 +1,40 @@
+.summonerCard {
+    height: 200px;
+    margin: 20px;
+    width: 400px;
+}
+
+.summonerCardBody {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.summonerCardInfo {
+    padding: 20px;
+}
+
+.rankImage {
+    height: 128px;
+}
+
+@keyframes backgroundPositionDisplacement{
+    0%{
+        background-position: -468px 0
+    }
+    100%{
+        background-position: 468px 0
+    }
+}
+
+.loadingContents {
+    border-radius: 6px;
+    animation-duration: 1s;
+    animation: 1s infinite backgroundPositionDisplacement ease-in-out ;
+    background: #f6f7f8;
+    background: linear-gradient(to right, #fff 8%, #ddd 18%, #fff 33%);
+    background-size: 1000px 100px;
+    position: relative;
+    overflow: hidden;
+}

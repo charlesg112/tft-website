@@ -1,15 +1,46 @@
-import {useState} from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import './SearchPage.css';
 import "bulma/css/bulma.min.css";
-import {Link} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 export default function SearchPage() {
 
+    const [firstInputIsInvalid, setFirstInputIsInvalid] = useState(false);
+    const [secondInputIsInvalid, setSecondInputIsInvalid] = useState(false);
     const [firstSummoner, setFirstSummoner] = useState("");
     const [secondSummoner, setSecondSummoner] = useState("");
+    let navigate = useNavigate();
 
-    function handleSearchClick() {
-        console.log(`First summoner name : ${firstSummoner}; Second summoner name : ${secondSummoner}`)
+    function handleFirstInputChange(e: ChangeEvent<HTMLInputElement>) {
+        setFirstInputIsInvalid(false);
+        setFirstSummoner(e.target.value);
+    }
+
+    function handleSecondInputChange(e: ChangeEvent<HTMLInputElement>) {
+        setSecondInputIsInvalid(false);
+        setSecondSummoner(e.target.value);
+    }
+
+    function handleSearchClick(e : React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+        let isValid = true;
+        if (firstSummoner.toString().replaceAll(" ", "") === "") {
+            setFirstInputIsInvalid(true);
+            isValid = false;
+            setFirstSummoner("");
+        }
+        if (secondSummoner.toString().replaceAll(" ", "") === "") {
+            setSecondInputIsInvalid(true);
+            isValid = false;
+            setSecondSummoner("");
+        }
+        if (isValid) {
+            navigate(`/duo/${firstSummoner}/${secondSummoner}`)
+        }
+    }
+
+    function getClasses(isInvalid: boolean) {
+        return isInvalid ? 'is-danger' : 'is-info';
     }
 
     return <div className={'searchPage'}>
@@ -18,9 +49,9 @@ export default function SearchPage() {
                 <img className={'doublesLogoImage'} src={'pengu.png'} alt={'logo'}/>
                 <div className={'is-size-2-mobile is-size-1-tablet is-size-1-desktop'}> Doubles !</div>
             </div>
-            <input className={'input is-info inputBox mb-1'} placeholder={'First summoner'} onChange={(e) => setFirstSummoner(e.target.value)} value={firstSummoner}/>
-            <input className={'input is-info inputBox mb-5'} placeholder={'Second summoner'} onChange={(e) => setSecondSummoner(e.target.value)} value={secondSummoner}/>
-            <Link className={'button is-info buttonBox'} onClick={handleSearchClick} to={`/duo/${firstSummoner}/${secondSummoner}`}> Search </Link>
+            <input className={`input is-info inputBox mb-1 ml-2 mr-2 ${getClasses(firstInputIsInvalid)}`} placeholder={'First summoner'} onChange={e => handleFirstInputChange(e)} value={firstSummoner}/>
+            <input className={`input inputBox mb-5 ml-2 mr-2 ${getClasses(secondInputIsInvalid)}`} placeholder={'Second summoner'} onChange={e => handleSecondInputChange(e)} value={secondSummoner}/>
+            <button className={'button is-info buttonBox'} onClick={e => handleSearchClick(e)}> Search </button>
         </div>
     </div>
 

@@ -10,3 +10,12 @@ export type TftTrait = {
     tierTotal: number,
     style: number
 }
+
+export type Summoner = {
+    name: string,
+    level: number,
+    tier: string,
+    rank: string,
+    wins: number,
+    losses: number
+}
