@@ -1,10 +1,11 @@
 import {TftTrait} from "../TftDoubles/Types";
 import './HoverBox.css';
+import filterDisplayedName from "./DisplayFilter";
 
 export default function TraitHoverBox(props: TftTrait) {
     return (
         <div className={'traitHoverBox'}>
-            {props.name}
+            {filterDisplayedName(props.name)}
         </div>
     )
 }
