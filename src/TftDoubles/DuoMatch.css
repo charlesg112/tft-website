@@ -13,3 +13,7 @@
     flex-wrap: wrap;
     justify-content: left;
 }
+
+.loadingContents {
+    height: 200px;
+}

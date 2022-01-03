@@ -1,13 +1,30 @@
-import {Summoner} from "../TftDoubles/Types";
 import './SummonerCard.css';
-import React from "react";
+import React, {useEffect, useState} from "react";
+import {getSummoner} from "../Api/api";
 
 export type SummonerCardProps = {
-    summoner: Summoner,
-    isLoading: boolean
+    summonerName: string
 }
 
 export default function SummonerCard( props: SummonerCardProps) {
+
+    let [summonerNotFound, setSummonerNotFound] = useState(false);
+    let [summonerInfo, setSummonerInfo] = useState(summonerPlaceholder);
+    let [isLoading, setIsLoading] = useState(true);
+
+    useEffect (() => {
+        async function loadSummoners() {
+            try {
+                const response = await getSummoner(props.summonerName);
+                setSummonerInfo(response);
+            }
+            catch (e) {
+                setSummonerNotFound(true);
+            }
+            setIsLoading(false);
+        };
+        loadSummoners();
+    }, [])
 
     function getLoadingContents() {
         return (
@@ -21,23 +38,39 @@ export default function SummonerCard( props: SummonerCardProps) {
         return (
             <React.Fragment>
                 <div className={'message-header'}>
-                    <div> {props.summoner.name} </div>
+                    <div> {summonerInfo.name} </div>
                 </div>
                 <div className={'message-body summonerCardBody'}>
-                    <img className={'rankImage'} src={getRankSource(props.summoner.tier, props.summoner.rank)} alt={getRankSource(props.summoner.tier, props.summoner.rank)}/>
+                    <img className={'rankImage'} src={getRankSource(summonerInfo.tier, summonerInfo.rank)} alt={getRankSource(summonerInfo.tier, summonerInfo.rank)}/>
                     <div className={'summonerCardInfo'}>
                         <div className={'has-text-weight-bold'}> Solo rank </div>
-                        <div> {props.summoner.tier} {props.summoner.rank} </div>
+                        <div> {summonerInfo.tier} {summonerInfo.rank} </div>
                         <div className={'has-text-weight-bold'}> First place </div>
-                        <div> {props.summoner.wins} / {props.summoner.losses + props.summoner.wins} </div>
+                        <div> {summonerInfo.wins} / {summonerInfo.wins + summonerInfo.losses} </div>
                     </div>
                 </div>
             </React.Fragment>
         )
     }
 
-    return <div className={`summonerCard ${props.isLoading? 'loadingContents' : 'message is-dark'}`}>
-        {props.isLoading ? getLoadingContents() : getCardContents()}
+    function getSummonerNotFoundContents() {
+        return (
+            <React.Fragment>
+                <div className={'message-header'}>
+                    <div> '{props.summonerName}' was not found ... :( </div>
+                </div>
+                <div className={'message-body'} >
+                    <img className={'summonerNotFoundIcon'} src={'/icons/not_found.png'} alt={'Summoner not found :('} />
+                </div>
+            </React.Fragment>
+        )
+    }
+
+    return <div className={`summonerCard ${isLoading? 'loadingContents' : 'message is-dark'}`}>
+        {
+            isLoading ? getLoadingContents() :
+            summonerNotFound? getSummonerNotFoundContents() : getCardContents()
+        }
     </div>
 
 }
@@ -62,3 +95,13 @@ function mapRankToNumber(tier: string) : number {
             return 4;
     }
 }
+
+const summonerPlaceholder = {
+    "name": "Babus",
+    "level": 1000,
+    "tier": "GOLD",
+    "rank": "I",
+    "wins": 20,
+    "losses": 20
+}
+

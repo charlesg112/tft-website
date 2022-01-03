@@ -1,0 +1,23 @@
+.placementHolder {
+    display: flex;
+}
+
+.placement {
+    align-self: center;
+}
+
+.placementOrdinalIndicator {
+    align-self: flex-start;
+}
+
+.first {
+    color: var(--color-gold);
+}
+
+.second {
+    color: var(--color-silver);
+}
+
+.third {
+    color: var(--color-bronze);
+}

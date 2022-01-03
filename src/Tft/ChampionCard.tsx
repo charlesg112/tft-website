@@ -6,7 +6,7 @@ export default function ChampionCard(props: TftChampion) {
     return (
         <div className={`championCard`}>
             <ChampionHoverBox name={props.name} rarity={props.rarity} tier={props.rarity}/>
-            <img className={`championImage  ${getBorder(props.rarity)}`} src={`tft6/champions/${props.name}.png`} alt={props.name} />
+            <img className={`championImage  ${getBorder(props.rarity)}`} src={`/tft6/champions/${props.name}.png`} alt={props.name} />
         </div>
     )
 }

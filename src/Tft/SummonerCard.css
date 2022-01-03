@@ -29,12 +29,17 @@
 }
 
 .loadingContents {
-    border-radius: 6px;
+    border-radius: 4px;
     animation-duration: 1s;
     animation: 1s infinite backgroundPositionDisplacement ease-in-out ;
-    background: #f6f7f8;
+    background: #fff;
     background: linear-gradient(to right, #fff 8%, #ddd 18%, #fff 33%);
     background-size: 1000px 100px;
     position: relative;
     overflow: hidden;
+}
+
+.summonerNotFoundIcon {
+    height: 128px;
+    filter: grayscale(100%) opacity(40%);
 }

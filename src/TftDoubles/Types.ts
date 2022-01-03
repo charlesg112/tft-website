@@ -19,3 +19,21 @@ export type Summoner = {
     wins: number,
     losses: number
 }
+
+export type TftPlayerMatch = {
+    name: string,
+    totalDamageToPlayers: number,
+    level: number,
+    units: TftChampion[]
+    traits: TftTrait[]
+}
+
+export type TftDuo = {
+    placement: number,
+    participants : TftPlayerMatch[]
+}
+
+export type TftMatch = {
+    matchId: string,
+    duos: TftDuo[]
+}

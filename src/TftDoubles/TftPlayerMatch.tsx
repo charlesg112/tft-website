@@ -11,7 +11,7 @@ export type PlayerMatchProps = {
 export function TftPlayerMatch(props: PlayerMatchProps) {
   return (
     <div>
-      <div className={"ml-2  has-text-left"}>{props.summonerName}</div>
+      <div className={"ml-2  has-text-left has-text-weight-semibold"}>{props.summonerName}</div>
       <div className={"championList"}>
         {props.summonerChampions.map((c) => {
           return (

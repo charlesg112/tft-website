@@ -7,7 +7,7 @@ export default function TraitCard(props: TftTrait) {
         <div className={'traitCard'}>
             <TraitHoverBox name={props.name} numUnits={props.numUnits} style={props.style} tierTotal={props.tierTotal} />
             <div className={`hexagon ${getTraitColorClass(props.style)}`}>
-                <img className={'traitImage'} src={`tft6/traits/${props.name}.png`} alt={props.name} />
+                <img className={'traitImage'} src={`/tft6/traits/${props.name}.png`} alt={props.name} />
             </div>
             <div className={'traitNumUnits'}> {props.numUnits} </div>
         </div>
