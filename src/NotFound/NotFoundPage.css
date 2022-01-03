@@ -1,0 +1,12 @@
+.notFoundPage {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20vh;
+}
+
+.notFoundImage {
+    filter: grayscale(100%) opacity(40%);
+}

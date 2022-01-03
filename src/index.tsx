@@ -6,13 +6,17 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import SearchPage from "./Search/SearchPage";
 import DuoPage from "./Duos/DuoPage";
+import NotFoundPage from "./NotFound/NotFoundPage";
+import HomePage from "./HomePage/HomePage";
 
 ReactDOM.render(
   <BrowserRouter>
       <Routes>
+          <Route path={''} element={<HomePage />} />
           <Route path="/" element={<App />}>
             <Route path="search" element={<SearchPage />} />
             <Route path="duo/:firstSummoner/:secondSummoner" element={<DuoPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
       </Routes>
   </BrowserRouter>,
