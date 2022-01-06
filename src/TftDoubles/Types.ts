@@ -35,5 +35,6 @@ export type TftDuo = {
 
 export type TftMatch = {
     matchId: string,
+    datetime: number,
     duos: TftDuo[]
 }

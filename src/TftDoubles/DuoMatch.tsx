@@ -4,6 +4,7 @@ import "./DuoMatch.css";
 import React from 'react';
 import {TftPlayerMatch} from "./TftPlayerMatch";
 import Placement from "../Tft/Placement";
+import PlayDate from "../Tft/PlayDate";
 
 export type DuoMatchProps = {
   firstSummonerName: string;
@@ -13,7 +14,8 @@ export type DuoMatchProps = {
   firstSummonerTraits: TftTrait[];
   secondSummonerTraits: TftTrait[];
   placement: number;
-  isLoading: boolean
+  isLoading: boolean;
+  datetime: number;
 }
 
 export function DuoMatch(props: DuoMatchProps) {
@@ -33,6 +35,7 @@ export function DuoMatch(props: DuoMatchProps) {
         return <React.Fragment>
             <div className={'message-header'}>
                 <Placement placement={props.placement} />
+                <PlayDate datetime={props.datetime} />
             </div>
             <div className={'message-body'}>
                 <div className={'columns'}>

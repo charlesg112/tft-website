@@ -33,7 +33,7 @@ export default function MatchHistory(props: MatchHistoryProps) {
     function getLoadingContents() {
         return (
             <React.Fragment>
-                {Array(10).fill(<DuoMatch firstSummonerName={''} secondSummonerName={''} firstSummonerChampions={[]}
+                {Array(10).fill(<DuoMatch datetime={0} firstSummonerName={''} secondSummonerName={''} firstSummonerChampions={[]}
                                           secondSummonerChampions={[]} firstSummonerTraits={[]} secondSummonerTraits={[]} placement={0} isLoading={true}/>)}
             </React.Fragment>
         )
@@ -47,7 +47,7 @@ export default function MatchHistory(props: MatchHistoryProps) {
 
     function getDuoMatch(match: TftMatch) {
         const duo = match.duos.filter(d => d.participants.some(p => cleanString(p.name) === cleanString(props.firstSummonerName))).at(0) as TftDuo;
-        return <DuoMatch isLoading={false} placement={duo.placement} firstSummonerName={duo.participants[0].name} secondSummonerName={duo.participants[1].name} firstSummonerChampions={duo.participants[0].units}
+        return <DuoMatch datetime={match.datetime} isLoading={false} placement={duo.placement} firstSummonerName={duo.participants[0].name} secondSummonerName={duo.participants[1].name} firstSummonerChampions={duo.participants[0].units}
                          secondSummonerChampions={duo.participants[1].units} firstSummonerTraits={duo.participants[0].traits} secondSummonerTraits={duo.participants[1].traits}/>
     }
 
