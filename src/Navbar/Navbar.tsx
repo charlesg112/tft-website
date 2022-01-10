@@ -10,7 +10,7 @@ export default function Navbar() {
             <img src='/logo.png' alt={'Doubles logo'} />
           </Link>
       <Link className={'navItem navbar-item'} to="/search">Search</Link>
-      <Link className={'navItem navbar-item'} to="/duo">Duo</Link>
+      <Link className={'navItem navbar-item'} to="/champions">Champions</Link>
     </nav>
       <hr className={'separator'}/>
   </div>;

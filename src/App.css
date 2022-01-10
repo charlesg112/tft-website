@@ -2,6 +2,8 @@
   --color-gold: gold;
   --color-silver: silver;
   --color-bronze: #CD7F32;
+  --trait-border: #333333;
+  --light-trait-border: #919191
 }
 
 .App {

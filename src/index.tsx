@@ -8,6 +8,7 @@ import SearchPage from "./Search/SearchPage";
 import DuoPage from "./Duos/DuoPage";
 import NotFoundPage from "./NotFound/NotFoundPage";
 import HomePage from "./HomePage/HomePage";
+import ChampionsPage from "./Champions/ChampionsPage";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -16,6 +17,7 @@ ReactDOM.render(
           <Route path="/" element={<App />}>
             <Route path="search" element={<SearchPage />} />
             <Route path="duo/:firstSummoner/:secondSummoner" element={<DuoPage />} />
+            <Route path="champions" element={<ChampionsPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
       </Routes>

@@ -1,7 +1,7 @@
 export type TftChampion = {
     name: string
     rarity: number,
-    tier: number
+    tier?: number
 }
 
 export type TftTrait = {
