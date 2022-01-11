@@ -3,9 +3,12 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
 }
 
-.traitsFilter::after {
-    content: "";
-    flex: auto;
+.traitsFilterHolder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+

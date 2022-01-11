@@ -1,3 +1,7 @@
+.individualTraitFilter {
+    flex-grow: 1
+}
+
 .disabled .traitImage {
     filter: brightness(80%);
 }

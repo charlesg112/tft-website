@@ -2,7 +2,7 @@ import {useState} from "react";
 import ChampionCard from "../Tft/ChampionCard";
 import './ChampionsFilters.css';
 import {ChampionInfo, champions, CostFilterState, costs, FilterState, traits} from "./Sets/Set6Filters";
-import TraitFilter from "./Filters/TraitFilter";
+import TraitFilter from "./Filters/Traits/TraitFilter";
 import CostFilter from "./Filters/Cost/CostFilter";
 
 export default function ChampionsFilters() {

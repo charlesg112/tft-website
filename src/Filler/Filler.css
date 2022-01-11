@@ -1,0 +1,35 @@
+.filler {
+    visibility: hidden;
+}
+
+.fillerFullDesktop, .fillerHalfDesktop, .fillerTablet, .fillerMobile{
+    display: none;
+}
+
+/* Full Desktop */
+@media screen and (min-width: 1500px) and (max-width: 2000px){
+    .fillerFullDesktop {
+        display: inline-block;
+    }
+}
+
+/* Half Desktop */
+@media screen and (min-width: 1000px) and (max-width: 1500px){
+    .fillerHalfDesktop {
+        display: inline-block;
+    }
+}
+
+/* Tablet */
+@media screen and (min-width: 700px) and (max-width: 1000px) {
+    .fillerTablet {
+        display: inline-block;
+    }
+}
+
+/* Mobile */
+@media screen and (min-width: 200px) and (max-width: 700px) {
+    .fillerMobile {
+        display: inline-block;
+    }
+}
