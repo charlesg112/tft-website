@@ -1,9 +1,3 @@
-.traitsFilter {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
 .championsDisplay {
     display: flex;
     flex-wrap: wrap;
