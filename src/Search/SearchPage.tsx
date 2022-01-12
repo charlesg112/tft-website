@@ -2,6 +2,7 @@ import React, {ChangeEvent, useState} from 'react';
 import './SearchPage.css';
 import "bulma/css/bulma.min.css";
 import { useNavigate } from "react-router-dom";
+import {keyCodes} from "../Forms/KeyCodes";
 
 
 export default function SearchPage() {
@@ -22,7 +23,7 @@ export default function SearchPage() {
         setSecondSummoner(e.target.value);
     }
 
-    function handleSearchClick(e : React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+    function handleSearchClick() {
         let isValid = true;
         if (firstSummoner.toString().replaceAll(" ", "") === "") {
             setFirstInputIsInvalid(true);
@@ -39,6 +40,12 @@ export default function SearchPage() {
         }
     }
 
+    function handleKeyDown(e : React.KeyboardEvent) {
+        if (e.code === keyCodes.enter) {
+            handleSearchClick();
+        }
+    }
+
     function getClasses(isInvalid: boolean) {
         return isInvalid ? 'is-danger' : 'is-info';
     }
@@ -49,9 +56,9 @@ export default function SearchPage() {
                 <img className={'doublesLogoImage'} src={'pengu.png'} alt={'logo'}/>
                 <div className={'is-size-2-mobile is-size-1-tablet is-size-1-desktop'}> Doubles !</div>
             </div>
-            <input className={`input is-info inputBox mb-1 ml-2 mr-2 ${getClasses(firstInputIsInvalid)}`} placeholder={'First summoner'} onChange={e => handleFirstInputChange(e)} value={firstSummoner}/>
-            <input className={`input inputBox mb-5 ml-2 mr-2 ${getClasses(secondInputIsInvalid)}`} placeholder={'Second summoner'} onChange={e => handleSecondInputChange(e)} value={secondSummoner}/>
-            <button className={'button is-info buttonBox'} onClick={e => handleSearchClick(e)}> Search </button>
+            <input onKeyDown={e => handleKeyDown(e)} className={`input is-info inputBox mb-1 ml-2 mr-2 ${getClasses(firstInputIsInvalid)}`} placeholder={'First summoner'} onChange={e => handleFirstInputChange(e)} value={firstSummoner}/>
+            <input onKeyDown={e => handleKeyDown(e)} className={`input inputBox mb-5 ml-2 mr-2 ${getClasses(secondInputIsInvalid)}`} placeholder={'Second summoner'} onChange={e => handleSecondInputChange(e)} value={secondSummoner}/>
+            <button className={'button is-info buttonBox'} onClick={handleSearchClick}> Search </button>
         </div>
     </div>
 
