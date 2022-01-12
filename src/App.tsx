@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
 import Navbar from "./Navbar/Navbar";
 import {Outlet} from "react-router-dom";
@@ -7,7 +7,9 @@ import en from 'javascript-time-ago/locale/en.json';
 
 function App() {
 
-    TimeAgo.addDefaultLocale(en);
+    useEffect(() => {
+        TimeAgo.addDefaultLocale(en);
+    }, [])
 
     return (
         <div className="App">

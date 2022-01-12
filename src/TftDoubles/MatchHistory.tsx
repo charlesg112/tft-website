@@ -38,9 +38,23 @@ export default function MatchHistory(props: MatchHistoryProps) {
         )
     }
 
+    function getLoadedContents() {
+        if (matches.length === 0) {
+            return <div>
+                <img className={'summonerNotFoundIcon'} src={'/icons/not_found.png'} alt={'No recent matches recorded'} />
+                <div> No recent matches recorded :( </div>
+            </div>
+        }
+
+        return <React.Fragment>
+            { matches.map(m => getDuoMatch(m)) }
+        </React.Fragment>
+
+    }
+
     return (
         <div className={'matchHistory'}>
-            {isLoading ? getLoadingContents() : matches.map(m => getDuoMatch(m))}
+            {isLoading ? getLoadingContents() : getLoadedContents()}
         </div>
     )
 
