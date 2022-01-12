@@ -28,7 +28,7 @@ export default function MatchHistory(props: MatchHistoryProps) {
             setIsLoading(false);
         };
         loadMatchHistory();
-    }, [])
+    }, [props.firstSummonerName, props.secondSummonerName])
 
     function getLoadingContents() {
         return (

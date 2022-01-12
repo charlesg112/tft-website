@@ -24,7 +24,7 @@ export default function SummonerCard( props: SummonerCardProps) {
             setIsLoading(false);
         };
         loadSummoners();
-    }, [])
+    }, [props.summonerName])
 
     function getLoadingContents() {
         return (

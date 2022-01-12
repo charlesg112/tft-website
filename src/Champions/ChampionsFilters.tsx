@@ -34,7 +34,7 @@ export default function ChampionsFilters() {
     return <div className={'championFilters columns'}>
         <div className={'column is-one-fifth'}>
             <TraitFilter filterState={traitFilterState} onClick={handleTraitFilterClick}/>
-            <CostFilter filterState={costFilterState} onClick={handleCostFilterClick}/>
+            {/*<CostFilter filterState={costFilterState} onClick={handleCostFilterClick}/>*/}
         </div>
         <div className={'column'}>
             <div className={'championsDisplay'}>

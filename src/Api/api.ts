@@ -2,7 +2,7 @@ import {Summoner, TftMatch} from "../TftDoubles/Types";
 import {errorCodes} from "./errorCodes";
 import {mapToSummoner} from "./summonerMapper";
 
-const API_BASE_URL = 'http://localhost:8080';
+const API_BASE_URL = 'https://tft-api-v1.herokuapp.com';
 
 export type SummonerResponse = {
     id: string,
@@ -15,6 +15,7 @@ export type SummonerResponse = {
 }
 
 export async function getSummoner(summonerName: string) : Promise<Summoner> {
+    console.log(process.env);
     try {
         const response = await fetch(`${API_BASE_URL}/summoner/${summonerName}`);
         if (response.status === 404) {
