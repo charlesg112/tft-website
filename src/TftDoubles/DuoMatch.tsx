@@ -16,6 +16,7 @@ export type DuoMatchProps = {
   placement: number;
   isLoading: boolean;
   datetime: number;
+  matchId: string
 }
 
 export function DuoMatch(props: DuoMatchProps) {
@@ -40,10 +41,10 @@ export function DuoMatch(props: DuoMatchProps) {
             <div className={'message-body'}>
                 <div className={'columns'}>
                     <div className={'column'}>
-                        <TftPlayerMatch summonerName={props.firstSummonerName} summonerChampions={props.firstSummonerChampions} summonerTraits={props.firstSummonerTraits} />
+                        <TftPlayerMatch summonerName={props.firstSummonerName} summonerChampions={props.firstSummonerChampions} summonerTraits={props.firstSummonerTraits} matchId={props.matchId} />
                     </div>
                     <div className={'column'}>
-                        <TftPlayerMatch summonerName={props.secondSummonerName} summonerChampions={props.secondSummonerChampions} summonerTraits={props.secondSummonerTraits} />
+                        <TftPlayerMatch summonerName={props.secondSummonerName} summonerChampions={props.secondSummonerChampions} summonerTraits={props.secondSummonerTraits} matchId={props.matchId}/>
                     </div>
                 </div>
             </div>

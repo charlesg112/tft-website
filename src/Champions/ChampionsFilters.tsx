@@ -38,7 +38,7 @@ export default function ChampionsFilters() {
         </div>
         <div className={'column'}>
             <div className={'championsDisplay'}>
-                {filteredChampions.map(c => <div className={`m-2 ${c.displayed ? '' : 'notDisplayedChampion'}`}>
+                {filteredChampions.map(c => <div className={`m-2 ${c.displayed ? '' : 'notDisplayedChampion'}`} key={`championCard_${c.name}`}>
                     <ChampionCard name={c.name} rarity={c.rarity}/>
                 </div>)}
             </div>

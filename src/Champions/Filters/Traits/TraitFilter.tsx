@@ -14,7 +14,7 @@ export default function TraitFilter(props: TraitFilterProps) {
     return <div>
         <FilterName name={'Traits'}/>
         <div className={'traitsFilter'}>
-            {props.filterState.map(t => <div className={'m-2'}>
+            {props.filterState.map(t => <div className={'m-2'} key={`traitFilter_${t.name}`}>
                 <IndividualTraitFilter name={t.name} enabled={t.enabled} onClick={() => props.onClick(t.name)} key={t.name}/>
             </div>)}
             <Filler element={getFillerIndividualTraitFilter()} fullDesktop={2} halfDesktop={4}  mobile={4}/>

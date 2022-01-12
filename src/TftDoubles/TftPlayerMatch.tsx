@@ -3,6 +3,7 @@ import {TftChampion, TftTrait} from "./Types";
 import TraitCard from "../Tft/TraitCard";
 
 export type PlayerMatchProps = {
+  matchId: string,
   summonerName: string;
   summonerChampions: TftChampion[];
   summonerTraits: TftTrait[];
@@ -15,7 +16,7 @@ export function TftPlayerMatch(props: PlayerMatchProps) {
       <div className={"championList"}>
         {props.summonerChampions.map((c) => {
           return (
-            <div className={"m-2"}>
+            <div className={"m-2"} key={`championCard_${props.summonerName}_${props.matchId}_${c.name}`}>
               <ChampionCard name={c.name} rarity={c.rarity} tier={c.tier} />
             </div>
           );
@@ -24,7 +25,7 @@ export function TftPlayerMatch(props: PlayerMatchProps) {
         <div className={'traitsList'}>
             {getFilteredTraits(props.summonerTraits).map(t => {
                 return (
-                    <div className={'m-2'}>
+                    <div className={'m-2'} key={`traitCard_${props.summonerName}_${props.matchId}_${t.name}`}>
                         <TraitCard name={t.name} numUnits={t.numUnits} tierTotal={t.tierTotal} style={t.style} />
                     </div>
                 )

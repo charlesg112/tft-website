@@ -15,7 +15,6 @@ export type SummonerResponse = {
 }
 
 export async function getSummoner(summonerName: string) : Promise<Summoner> {
-    console.log(process.env);
     try {
         const response = await fetch(`${API_BASE_URL}/summoner/${summonerName}`);
         if (response.status === 404) {
@@ -41,7 +40,6 @@ export async function getRecentMatches(summonerName1 : string, summonerName2 : s
         return json as TftMatch[];
     }
     catch (e) {
-        console.error(e);
         if (e === errorCodes.SUMMONER_NOT_FOUND) throw errorCodes.SUMMONER_NOT_FOUND;
         else throw errorCodes.SERVER_ERROR;
     }
