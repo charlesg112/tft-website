@@ -3,12 +3,12 @@ import ChampionCard from "../Tft/ChampionCard";
 import './ChampionsFilters.css';
 import {ChampionInfo, champions, CostFilterState, costs, FilterState, traits} from "./Sets/Set6Filters";
 import TraitFilter from "./Filters/Traits/TraitFilter";
-import CostFilter from "./Filters/Cost/CostFilter";
+// import CostFilter from "./Filters/Cost/CostFilter";
 
 export default function ChampionsFilters() {
 
     let [traitFilterState, setTraitFilterState] = useState(traits);
-    let [costFilterState, setCostFilterState] = useState(costs);
+    let [costFilterState] = useState(costs);
     let [filteredChampions, setFilteredChampions] = useState(champions);
 
     function handleTraitFilterClick(name: string) {
@@ -21,7 +21,7 @@ export default function ChampionsFilters() {
         )
     }
 
-    function handleCostFilterClick(name: string) {
+    /*function handleCostFilterClick(name: string) {
         const newCostFilterState = costFilterState.map(c => c.name === name ? {...c, enabled: !c.enabled} : c)
         setCostFilterState(
             newCostFilterState
@@ -29,7 +29,7 @@ export default function ChampionsFilters() {
         setFilteredChampions (
             getFilteredChampions(traitFilterState, newCostFilterState)
         )
-    }
+    }*/
 
     return <div className={'championFilters columns'}>
         <div className={'column is-one-fifth'}>
